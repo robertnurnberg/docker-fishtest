@@ -20,7 +20,7 @@ for worker in $(seq 1 $NUM_WORKERS); do
   worker_dir=~/worker$worker
   cp -r fishtest "$worker_dir"
   cd "$worker_dir/worker"
-  python3 worker.py $WORKER_ARGS &
+  python3 worker.py -w $WORKER_ARGS && python3 worker.py &
   cd ~
 done
 
